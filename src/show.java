@@ -1,10 +1,10 @@
 
+import javax.swing.JLabel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author shivamkumar
@@ -14,10 +14,20 @@ public class show extends javax.swing.JFrame {
     /**
      * Creates new form show
      */
-    private  int count ;
+    private boolean b1, b2, b3, b4, b5, b6, b7, b8, b9;
+
     public show() {
         initComponents();
-        count=0;
+        b1 = true;
+        b2 = true;
+        b3 = true;
+        b4 = true;
+        b5 = true;
+        b6 = true;
+        b7 = true;
+        b8 = true;
+        b9 = true;
+
     }
 
     /**
@@ -29,7 +39,7 @@ public class show extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        b1 = new javax.swing.JButton();
+        back = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         B4 = new javax.swing.JLabel();
         B5 = new javax.swing.JLabel();
@@ -47,10 +57,10 @@ public class show extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("show");
 
-        b1.setText("Back");
-        b1.addActionListener(new java.awt.event.ActionListener() {
+        back.setText("Back");
+        back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b1ActionPerformed(evt);
+                backActionPerformed(evt);
             }
         });
 
@@ -68,6 +78,7 @@ public class show extends javax.swing.JFrame {
         B4.setBounds(30, 140, 120, 120);
 
         B5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
+        B5.setEnabled(false);
         B5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 B5MouseClicked(evt);
@@ -170,7 +181,7 @@ public class show extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton2)
-                            .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18))))
         );
         layout.setVerticalGroup(
@@ -181,7 +192,7 @@ public class show extends javax.swing.JFrame {
                         .addGap(153, 153, 153)
                         .addComponent(jButton2)
                         .addGap(58, 58, 58)
-                        .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
@@ -194,30 +205,41 @@ public class show extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         // TODO add your handling code here:
-        SetPassword.imagelist="";
-        SetPassword.blocklist="";
-        if (SetPassword.s.empty())
-               SetPassword.layerflag=true;
-        
+        SetPassword.imagelist = "";
+        SetPassword.blocklist = "";
+        if (SetPassword.s.empty()) {
+            SetPassword.layer1flag = true;
+            SetPassword.layer2flag = true;
+            SetPassword.layer3flag = true;
+
+        }
         this.setVisible(false);
         this.dispose();
 
-    }//GEN-LAST:event_b1ActionPerformed
+    }//GEN-LAST:event_backActionPerformed
 
     private void B1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B1MouseClicked
         // TODO add your handling code here:
-        B1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
-        SetPassword.blocklist+="1,";
+        if (b1) {
+            B1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
+            SetPassword.blocklist += "1,";
+            b1 = false;
+        } else {
+            evt.consume();
+        }
 
     }//GEN-LAST:event_B1MouseClicked
 
     private void B8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B8MouseClicked
         // TODO add your handling code here:
-        B8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
-        SetPassword.blocklist+="8,";
-        
+        if (b8) {
+            B8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
+            SetPassword.blocklist += "8,";
+            b8 = false;
+        } else
+            evt.consume();
     }//GEN-LAST:event_B8MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -231,8 +253,8 @@ public class show extends javax.swing.JFrame {
         B7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
         B8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
         B9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
-        
-        SetPassword.blocklist="";
+
+        SetPassword.blocklist = "";
 
 
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -240,56 +262,87 @@ public class show extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
+        SetPassword.s.add(SetPassword.layerlist);
         SetPassword.s.add(SetPassword.imagelist);
         SetPassword.s.add(SetPassword.blocklist);
-        SetPassword.imagelist="";
-        SetPassword.blocklist="";
+        SetPassword.layerlist = "";
+        SetPassword.imagelist = "";
+        SetPassword.blocklist = "";
         SetPassword.L1next.setEnabled(true);
-                SetPassword.L2next.setEnabled(true);
+        SetPassword.L2next.setEnabled(true);
         SetPassword.L3finish.setEnabled(true);
 
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void B2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B2MouseClicked
         // TODO add your handling code here:
-        B2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
-       SetPassword.blocklist+="2,";
+        if (b2) {
+            B2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
+            SetPassword.blocklist += "2,";
+            b2 = false;
+        } else
+            evt.consume();
     }//GEN-LAST:event_B2MouseClicked
 
     private void B3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B3MouseClicked
         // TODO add your handling code here:
-        B3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
-        SetPassword.blocklist+="3,";
+        if (b3) {
+            B3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
+            SetPassword.blocklist += "3,";
+            b3 = false;
+        } else
+            evt.consume();
     }//GEN-LAST:event_B3MouseClicked
 
     private void B4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B4MouseClicked
         // TODO add your handling code here:
-        B4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
-        SetPassword.blocklist+="4,";
+        if (b4) {
+            B4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
+            SetPassword.blocklist += "4,";
+            b4 = false;
+        } else
+            evt.consume();
     }//GEN-LAST:event_B4MouseClicked
 
     private void B5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B5MouseClicked
         // TODO add your handling code here:
-        B5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
-        SetPassword.blocklist+="5,";
+        if (b5) {
+            B5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
+            SetPassword.blocklist += "5,";
+            b5 = false;
+        } else
+            evt.consume();
     }//GEN-LAST:event_B5MouseClicked
 
     private void B6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B6MouseClicked
         // TODO add your handling code here:
-        B6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
-        SetPassword.blocklist+="6,";
+        if (b6) {
+            B6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
+            SetPassword.blocklist += "6,";
+            b6 = false;
+        } else
+            evt.consume();
     }//GEN-LAST:event_B6MouseClicked
 
     private void B7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B7MouseClicked
         // TODO add your handling code here:
-       SetPassword.blocklist+="7,";
+        if (b7) {
+            B7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
+            SetPassword.blocklist += "7,";
+            b7 = false;
+        } else
+            evt.consume();
     }//GEN-LAST:event_B7MouseClicked
 
     private void B9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B9MouseClicked
         // TODO add your handling code here:
-        B9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
-        SetPassword.blocklist+="9,";
+        if (b9) {
+            B9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
+            SetPassword.blocklist += "9,";
+            b9 = false;
+        } else
+            evt.consume();
     }//GEN-LAST:event_B9MouseClicked
 
     /**
@@ -337,7 +390,7 @@ public class show extends javax.swing.JFrame {
     private javax.swing.JLabel B7;
     private javax.swing.JLabel B8;
     private javax.swing.JLabel B9;
-    private javax.swing.JButton b1;
+    private javax.swing.JButton back;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;

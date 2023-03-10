@@ -9,9 +9,9 @@ public class SetPassword extends javax.swing.JFrame {
 
     public static Stack<String> s;
 
-    public static String pass,blocklist,imagelist;
+    public static String pass, blocklist, imagelist, layerlist;
 
-    public static boolean layerflag;
+    public static boolean layer1flag, layer2flag, layer3flag;
 
     public SetPassword() {
         initComponents();
@@ -19,17 +19,20 @@ public class SetPassword extends javax.swing.JFrame {
         map = new HashMap<>();
         s = new Stack<>();
         pass = "";
-        blocklist="";
-        imagelist="";
+        blocklist = "";
+        imagelist = "";
+        layerlist = "";
 
         utils.setImages();
 
-        layerflag = true;
+        layer1flag = true;
+        layer2flag = true;
+        layer3flag = true;
 
         Layer1.setVisible(true);
         Layer2.setVisible(false);
         Layer3.setVisible(false);
-        
+
         L1next.setEnabled(false);
     }
 
@@ -605,11 +608,11 @@ public class SetPassword extends javax.swing.JFrame {
         new show().setVisible(true);
         show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l1)))));
         new show().setFocusable(true);
-        if (layerflag) {
-            imagelist+="Layer_1 : ";
-            layerflag = false;
+        if (layer1flag) {
+            layerlist += "Layer_1 : ";
+            layer1flag = false;
         }
-        imagelist+=map.get(l1).replaceFirst(".jpg", "") + "_";
+        imagelist += map.get(l1).replaceFirst(".jpg", "") + "_";
 
     }//GEN-LAST:event_l1MouseClicked
 
@@ -618,72 +621,72 @@ public class SetPassword extends javax.swing.JFrame {
         new show().setVisible(true);
         show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l2)))));
         new show().setFocusable(true);
-        if (layerflag) {
-            imagelist+="Layer_1 : ";
-            layerflag = false;
+        if (layer1flag) {
+            layerlist += "Layer_1 : ";
+            layer1flag = false;
         }
-        imagelist+=map.get(l2).replaceFirst(".jpg", "") + "_";
+        imagelist += map.get(l2).replaceFirst(".jpg", "") + "_";
 
     }//GEN-LAST:event_l2MouseClicked
 
     private void l3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l3MouseClicked
         // TODO add your handling code here:
-         new show().setVisible(true);
+        new show().setVisible(true);
         show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l3)))));
         new show().setFocusable(true);
-        if (layerflag) {
-            imagelist+="Layer_1 : ";
-            layerflag = false;
+        if (layer1flag) {
+            layerlist += "Layer_1 : ";
+            layer1flag = false;
         }
-        imagelist+=map.get(l3).replaceFirst(".jpg", "") + "_";
+        imagelist += map.get(l3).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l3MouseClicked
 
     private void l4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l4MouseClicked
         // TODO add your handling code here:
- new show().setVisible(true);
+        new show().setVisible(true);
         show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l4)))));
         new show().setFocusable(true);
-        if (layerflag) {
-            imagelist+="Layer_1 : ";
-            layerflag = false;
+        if (layer1flag) {
+            layerlist += "Layer_1 : ";
+            layer1flag = false;
         }
-        imagelist+=map.get(l4).replaceFirst(".jpg", "") + "_";
+        imagelist += map.get(l4).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l4MouseClicked
 
     private void l5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l5MouseClicked
         // TODO add your handling code here:
-   new show().setVisible(true);
+        new show().setVisible(true);
         show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l5)))));
         new show().setFocusable(true);
-        if (layerflag) {
-            imagelist+="Layer_1 : ";
-            layerflag = false;
+        if (layer1flag) {
+            layerlist += "Layer_1 : ";
+            layer1flag = false;
         }
-        imagelist+=map.get(l5).replaceFirst(".jpg", "") + "_";
+        imagelist += map.get(l5).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l5MouseClicked
 
     private void l6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l6MouseClicked
         // TODO add your handling code here:
- new show().setVisible(true);
+        new show().setVisible(true);
         show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l6)))));
         new show().setFocusable(true);
-        if (layerflag) {
-            imagelist+="Layer_1 : ";
-            layerflag = false;
+        if (layer1flag) {
+            layerlist += "Layer_1 : ";
+            layer1flag = false;
         }
-        imagelist+=map.get(l6).replaceFirst(".jpg", "") + "_";
+        imagelist += map.get(l6).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l6MouseClicked
 
     private void l7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l7MouseClicked
         // TODO add your handling code here:
- new show().setVisible(true);
+        new show().setVisible(true);
         show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l7)))));
         new show().setFocusable(true);
-        if (layerflag) {
-            imagelist+="Layer_1 : ";
-            layerflag = false;
+        if (layer1flag) {
+            layerlist += "Layer_1 : ";
+            layer1flag = false;
         }
-        imagelist+=map.get(l7).replaceFirst(".jpg", "") + "_";
+        imagelist += map.get(l7).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l7MouseClicked
 
     private void l8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l8MouseClicked
@@ -691,11 +694,11 @@ public class SetPassword extends javax.swing.JFrame {
         new show().setVisible(true);
         show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l8)))));
         new show().setFocusable(true);
-        if (layerflag) {
-            imagelist+="Layer_1 : ";
-            layerflag = false;
+        if (layer1flag) {
+            layerlist += "Layer_1 : ";
+            layer1flag = false;
         }
-        imagelist+=map.get(l8).replaceFirst(".jpg", "") + "_";
+        imagelist += map.get(l8).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l8MouseClicked
 
     private void l9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l9MouseClicked
@@ -703,11 +706,11 @@ public class SetPassword extends javax.swing.JFrame {
         new show().setVisible(true);
         show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l9)))));
         new show().setFocusable(true);
-        if (layerflag) {
-            imagelist+="Layer_1 : ";
-            layerflag = false;
+        if (layer1flag) {
+            layerlist += "Layer_1 : ";
+            layer1flag = false;
         }
-        imagelist+=map.get(l9).replaceFirst(".jpg", "") + "_";
+        imagelist += map.get(l9).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l9MouseClicked
 
     private void l10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l10MouseClicked
@@ -715,35 +718,35 @@ public class SetPassword extends javax.swing.JFrame {
         new show().setVisible(true);
         show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l10)))));
         new show().setFocusable(true);
-        if (layerflag) {
-            imagelist+="Layer_1 : ";
-            layerflag = false;
+        if (layer1flag) {
+            layerlist += "Layer_1 : ";
+            layer1flag = false;
         }
-        imagelist+=map.get(l10).replaceFirst(".jpg", "") + "_";
+        imagelist += map.get(l10).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l10MouseClicked
 
     private void l11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l11MouseClicked
         // TODO add your handling code here:
-         new show().setVisible(true);
+        new show().setVisible(true);
         show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l1)))));
         new show().setFocusable(true);
-        if (layerflag) {
-            imagelist+="Layer_1 : ";
-            layerflag = false;
+        if (layer1flag) {
+            layerlist += "Layer_1 : ";
+            layer1flag = false;
         }
-        imagelist+=map.get(l11).replaceFirst(".jpg", "") + "_";
+        imagelist += map.get(l11).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l11MouseClicked
 
     private void l12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l12MouseClicked
         // TODO add your handling code here:
-  new show().setVisible(true);
+        new show().setVisible(true);
         show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l12)))));
         new show().setFocusable(true);
-        if (layerflag) {
-            imagelist+="Layer_1 : ";
-            layerflag = false;
+        if (layer1flag) {
+            layerlist += "Layer_1 : ";
+            layer1flag = false;
         }
-        imagelist+=map.get(l12).replaceFirst(".jpg", "") + "_";
+        imagelist += map.get(l12).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l12MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -758,8 +761,8 @@ public class SetPassword extends javax.swing.JFrame {
     private void L1nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_L1nextActionPerformed
         Layer2.setVisible(true);
         Layer1.setVisible(false);
-        layerflag = true;
-                L2next.setEnabled(false);
+        layer2flag = true;
+        L2next.setEnabled(false);
 
     }//GEN-LAST:event_L1nextActionPerformed
 
@@ -771,164 +774,322 @@ public class SetPassword extends javax.swing.JFrame {
         k.pop();
         getpass(k);
         pass += p;
-        k.add(p);          
+        k.add(p);
     }
     private void l13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l13MouseClicked
         // TODO add your handling code here:
 
-         new show().setVisible(true);
+        new show().setVisible(true);
         show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l13)))));
         new show().setFocusable(true);
-        if (layerflag) {
-            imagelist+="Layer_2 : ";
-            layerflag = false;
+        if (layer2flag) {
+            layerlist += "Layer_2 : ";
+            layer2flag = false;
         }
-        imagelist+=map.get(l13).replaceFirst(".jpg", "") + "_";
+        imagelist += map.get(l13).replaceFirst(".jpg", "") + "_";
 
     }//GEN-LAST:event_l13MouseClicked
 
     private void l14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l14MouseClicked
         // TODO add your handling code here:
 
-         new show().setVisible(true);
+        new show().setVisible(true);
         show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l14)))));
         new show().setFocusable(true);
-        if (layerflag) {
-            imagelist+="Layer_2 : ";
-            layerflag = false;
+        if (layer2flag) {
+            layerlist += "Layer_2 : ";
+            layer2flag = false;
         }
-        imagelist+=map.get(l14).replaceFirst(".jpg", "") + "_";
+        imagelist += map.get(l14).replaceFirst(".jpg", "") + "_";
 
     }//GEN-LAST:event_l14MouseClicked
 
     private void l15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l15MouseClicked
         // TODO add your handling code here: new show().setVisible(true);
+
+        new show().setVisible(true);
         show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l15)))));
         new show().setFocusable(true);
-        if (layerflag) {
-            imagelist+="Layer_1 : ";
-            layerflag = false;
+
+        if (layer2flag) {
+            layerlist += "Layer_2 : ";
+            layer2flag = false;
         }
-        imagelist+=map.get(l16).replaceFirst(".jpg", "") + "_";
+        imagelist += map.get(l15).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l15MouseClicked
 
     private void l16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l16MouseClicked
         // TODO add your handling code here:
+        new show().setVisible(true);
+        show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l16)))));
+        new show().setFocusable(true);
+
+        if (layer2flag) {
+            layerlist += "Layer_2 : ";
+            layer2flag = false;
+        }
+        imagelist += map.get(l16).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l16MouseClicked
 
     private void l17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l17MouseClicked
         // TODO add your handling code here:
+
+        new show().setVisible(true);
+        show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l17)))));
+        new show().setFocusable(true);
+
+        if (layer2flag) {
+            layerlist += "Layer_2 : ";
+            layer2flag = false;
+        }
+        imagelist += map.get(l17).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l17MouseClicked
 
     private void l18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l18MouseClicked
-        // TODO add your handling code here:
+        // TODO add your handling code here:        
+
+        new show().setVisible(true);
+        show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l18)))));
+        new show().setFocusable(true);
+        if (layer2flag) {
+            layerlist += "Layer_2 : ";
+            layer2flag = false;
+        }
+        imagelist += map.get(l18).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l18MouseClicked
 
     private void l19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l19MouseClicked
         // TODO add your handling code here:
+        new show().setVisible(true);
+        show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l19)))));
+        new show().setFocusable(true);
+        if (layer2flag) {
+            layerlist += "Layer_2 : ";
+            layer2flag = false;
+        }
+        imagelist += map.get(l19).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l19MouseClicked
 
     private void l20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l20MouseClicked
         // TODO add your handling code here:
+        new show().setVisible(true);
+        show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l20)))));
+        new show().setFocusable(true);
+        if (layer2flag) {
+            layerlist += "Layer_2 : ";
+            layer2flag = false;
+        }
+        imagelist += map.get(l20).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l20MouseClicked
 
     private void l21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l21MouseClicked
         // TODO add your handling code here:
+        new show().setVisible(true);
+        show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l21)))));
+        new show().setFocusable(true);
+        if (layer2flag) {
+            layerlist += "Layer_2 : ";
+            layer2flag = false;
+        }
+        imagelist += map.get(l21).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l21MouseClicked
 
     private void l22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l22MouseClicked
         // TODO add your handling code here:
+        new show().setVisible(true);
+        show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l22)))));
+        new show().setFocusable(true);
+        if (layer2flag) {
+            layerlist += "Layer_2 : ";
+            layer2flag = false;
+        }
+        imagelist += map.get(l22).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l22MouseClicked
 
     private void l23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l23MouseClicked
         // TODO add your handling code here:
+        new show().setVisible(true);
+        show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l23)))));
+        new show().setFocusable(true);
+        if (layer2flag) {
+            layerlist += "Layer_2 : ";
+            layer2flag = false;
+        }
+        imagelist += map.get(l23).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l23MouseClicked
 
     private void l24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l24MouseClicked
         // TODO add your handling code here:
+        new show().setVisible(true);
+        show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l24)))));
+        new show().setFocusable(true);
+        if (layer2flag) {
+            layerlist += "Layer_2 : ";
+            layer2flag = false;
+        }
+        imagelist += map.get(l24).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l24MouseClicked
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         Layer1.setVisible(true);
         Layer2.setVisible(false);
         s.clear();
-                L1next.setEnabled(false);
+        L1next.setEnabled(false);
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void L2nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_L2nextActionPerformed
         Layer3.setVisible(true);
         Layer2.setVisible(false);
-        layerflag = true;
-                L3finish.setEnabled(false);
+        layer3flag = true;
+        L3finish.setEnabled(false);
 
     }//GEN-LAST:event_L2nextActionPerformed
 
     private void l25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l25MouseClicked
-        // TODO add your handling code here:
- new show().setVisible(true);
+        // TODO add your handling code here:'
+        new show().setVisible(true);
         show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l25)))));
         new show().setFocusable(true);
-        if (layerflag) {
-            imagelist+="Layer_3 : ";
-            layerflag = false;
+        if (layer3flag) {
+            layerlist += "Layer_3 : ";
+            layer3flag = false;
         }
-        imagelist+=map.get(l25).replaceFirst(".jpg", "") + "_";
+        imagelist += map.get(l25).replaceFirst(".jpg", "") + "_";
 
     }//GEN-LAST:event_l25MouseClicked
 
     private void l26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l26MouseClicked
         // TODO add your handling code here:
-
         new show().setVisible(true);
         show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l26)))));
         new show().setFocusable(true);
-        if (layerflag) {
-            imagelist+="Layer_3 : ";
-            layerflag = false;
+        if (layer3flag) {
+            layerlist += "Layer_3 : ";
+            layer3flag = false;
         }
-        imagelist+=map.get(l26).replaceFirst(".jpg", "") + "_";
+        imagelist += map.get(l26).replaceFirst(".jpg", "") + "_";
 
     }//GEN-LAST:event_l26MouseClicked
 
     private void l27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l27MouseClicked
         // TODO add your handling code here:
+        new show().setVisible(true);
+        show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l27)))));
+        new show().setFocusable(true);
+        if (layer3flag) {
+            layerlist += "Layer_3 : ";
+            layer3flag = false;
+        }
+        imagelist += map.get(l27).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l27MouseClicked
 
     private void l28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l28MouseClicked
         // TODO add your handling code here:
+        new show().setVisible(true);
+        show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l28)))));
+        new show().setFocusable(true);
+        if (layer3flag) {
+            layerlist += "Layer_3 : ";
+            layer3flag = false;
+        }
+        imagelist += map.get(l28).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l28MouseClicked
 
     private void l29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l29MouseClicked
         // TODO add your handling code here:
+        new show().setVisible(true);
+        show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l29)))));
+        new show().setFocusable(true);
+        if (layer3flag) {
+            layerlist += "Layer_3 : ";
+            layer3flag = false;
+        }
+        imagelist += map.get(l29).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l29MouseClicked
 
     private void l30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l30MouseClicked
         // TODO add your handling code here:
+        new show().setVisible(true);
+        show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l30)))));
+        new show().setFocusable(true);
+        if (layer3flag) {
+            layerlist += "Layer_3 : ";
+            layer3flag = false;
+        }
+        imagelist += map.get(l30).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l30MouseClicked
 
     private void l31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l31MouseClicked
         // TODO add your handling code here:
+        new show().setVisible(true);
+        show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l31)))));
+        new show().setFocusable(true);
+        if (layer3flag) {
+            layerlist += "Layer_3 : ";
+            layer3flag = false;
+        }
+        imagelist += map.get(l31).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l31MouseClicked
 
     private void l32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l32MouseClicked
         // TODO add your handling code here:
+        new show().setVisible(true);
+        show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l32)))));
+        new show().setFocusable(true);
+        if (layer3flag) {
+            layerlist += "Layer_3 : ";
+            layer3flag = false;
+        }
+        imagelist += map.get(l32).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l32MouseClicked
 
     private void l33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l33MouseClicked
         // TODO add your handling code here:
+        new show().setVisible(true);
+        show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l33)))));
+        new show().setFocusable(true);
+        if (layer3flag) {
+            layerlist += "Layer_3 : ";
+            layer3flag = false;
+        }
+        imagelist += map.get(l33).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l33MouseClicked
 
     private void l34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l34MouseClicked
         // TODO add your handling code here:
+        new show().setVisible(true);
+        show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l34)))));
+        new show().setFocusable(true);
+        if (layer3flag) {
+            layerlist += "Layer_3 : ";
+            layer3flag = false;
+        }
+        imagelist += map.get(l34).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l34MouseClicked
 
     private void l35MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l35MouseClicked
         // TODO add your handling code here:
+        new show().setVisible(true);
+        show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l35)))));
+        new show().setFocusable(true);
+        if (layer3flag) {
+            layerlist += "Layer_3 : ";
+            layer3flag = false;
+        }
+        imagelist += map.get(l35).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l35MouseClicked
 
     private void l36MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l36MouseClicked
         // TODO add your handling code here:
+        new show().setVisible(true);
+        show.l3.setIcon(new javax.swing.ImageIcon(getClass().getResource("./images/%s".formatted(map.get(l36)))));
+        new show().setFocusable(true);
+        if (layer3flag) {
+            layerlist += "Layer_3 : ";
+            layer3flag = false;
+        }
+        imagelist += map.get(l36).replaceFirst(".jpg", "") + "_";
     }//GEN-LAST:event_l36MouseClicked
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -936,7 +1097,7 @@ public class SetPassword extends javax.swing.JFrame {
         Layer1.setVisible(true);
         Layer3.setVisible(false);
         s.clear();
-                L1next.setEnabled(false);
+        L1next.setEnabled(false);
 
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -944,7 +1105,7 @@ public class SetPassword extends javax.swing.JFrame {
 
         getpass(s);
         JOptionPane.showMessageDialog(null, pass, "password", JOptionPane.INFORMATION_MESSAGE);
-        pass="";
+        pass = "";
     }//GEN-LAST:event_L3finishActionPerformed
 
     /**
