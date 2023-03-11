@@ -2,6 +2,7 @@
 import java.util.*;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import java.sql.*;
 
 public class SetPassword extends javax.swing.JFrame {
 
@@ -92,6 +93,8 @@ public class SetPassword extends javax.swing.JFrame {
         getContentPane().setLayout(new java.awt.CardLayout());
 
         centralPane.setLayout(new java.awt.CardLayout());
+
+        Layer1.setBackground(new java.awt.Color(255, 255, 255));
 
         l1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         l1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -262,6 +265,8 @@ public class SetPassword extends javax.swing.JFrame {
 
         centralPane.add(Layer1, "card2");
 
+        Layer2.setBackground(new java.awt.Color(255, 255, 255));
+
         l13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         l13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -406,7 +411,7 @@ public class SetPassword extends javax.swing.JFrame {
                 .addGroup(Layer2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton5)
                     .addComponent(L2next))
-                .addGap(49, 49, 49)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Layer2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(l13, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(l14, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -428,6 +433,8 @@ public class SetPassword extends javax.swing.JFrame {
         );
 
         centralPane.add(Layer2, "card2");
+
+        Layer3.setBackground(new java.awt.Color(255, 255, 255));
 
         l25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         l25.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -752,7 +759,7 @@ public class SetPassword extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         s.clear();
-        new register().setVisible(true);
+        new Register().setVisible(true);
         this.setVisible(false);
         this.dispose();
 
@@ -1103,8 +1110,41 @@ public class SetPassword extends javax.swing.JFrame {
 
     private void L3finishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_L3finishActionPerformed
 
-        getpass(s);
+        try {
+           //Class.forName("com.mysql.jdbc.Driver");
+           getpass(s);
         JOptionPane.showMessageDialog(null, pass, "password", JOptionPane.INFORMATION_MESSAGE);
+        
+        String hashpass =hashing.gethash(pass);
+           Connection con = database.db();
+           
+            String sqlUsers = "insert into users values(?,?,?,?,?,?,?,?,?);";
+            PreparedStatement pst1 =con.prepareStatement(sqlUsers);
+            pst1.setString(1,Register.firstnameTextField.getText());
+            pst1.setString(2,Register.lastnameTextField.getText());
+            pst1.setString(3,Register.emailTextField.getText());
+            pst1.setString(4,Register.phoneTextField.getText());
+            pst1.setInt(5,Integer.parseInt(Register.ageTextField.getText()));
+//            pst1.setString(6,Register.genderComboBox.getText());
+            pst1.setString(6,"male");
+            pst1.setString(7,Register.addressTextField.getText());
+            pst1.setString(8,Register.pincodeTextField.getText());
+            pst1.setString(9,hashpass);            
+            pst1.execute();
+            
+            String sqlhash = "insert into hashmap values(?,?)";
+            PreparedStatement pst2 =con.prepareStatement(sqlhash);
+            pst2.setString(1, hashpass);
+            pst2.setString(2, pass);
+            pst2.execute();
+            
+            
+       }
+        catch (SQLException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+           
+        }
+        
         pass = "";
     }//GEN-LAST:event_L3finishActionPerformed
 
