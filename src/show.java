@@ -39,7 +39,6 @@ public class show extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        back = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         B4 = new javax.swing.JLabel();
         B5 = new javax.swing.JLabel();
@@ -51,33 +50,30 @@ public class show extends javax.swing.JFrame {
         B2 = new javax.swing.JLabel();
         B3 = new javax.swing.JLabel();
         l3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        back = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("show");
 
-        back.setText("Back");
-        back.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backActionPerformed(evt);
-            }
-        });
-
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56, 176, 0), 3));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.setLayout(null);
 
-        B4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
+        B4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         B4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 B4MouseClicked(evt);
             }
         });
         jPanel1.add(B4);
-        B4.setBounds(30, 140, 120, 120);
+        B4.setBounds(20, 190, 120, 120);
 
-        B5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
+        B5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         B5.setEnabled(false);
         B5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -85,120 +81,139 @@ public class show extends javax.swing.JFrame {
             }
         });
         jPanel1.add(B5);
-        B5.setBounds(150, 140, 120, 120);
+        B5.setBounds(140, 190, 120, 120);
 
-        B6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
+        B6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         B6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 B6MouseClicked(evt);
             }
         });
         jPanel1.add(B6);
-        B6.setBounds(270, 140, 120, 120);
+        B6.setBounds(260, 190, 120, 120);
 
-        B7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
+        B7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         B7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 B7MouseClicked(evt);
             }
         });
         jPanel1.add(B7);
-        B7.setBounds(30, 260, 120, 120);
+        B7.setBounds(20, 310, 120, 120);
 
-        B8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
+        B8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         B8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 B8MouseClicked(evt);
             }
         });
         jPanel1.add(B8);
-        B8.setBounds(150, 260, 120, 120);
+        B8.setBounds(140, 310, 120, 120);
 
-        B9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
+        B9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         B9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 B9MouseClicked(evt);
             }
         });
         jPanel1.add(B9);
-        B9.setBounds(270, 260, 120, 120);
+        B9.setBounds(260, 310, 120, 120);
 
-        B1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
+        B1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         B1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 B1MouseClicked(evt);
             }
         });
         jPanel1.add(B1);
-        B1.setBounds(30, 20, 120, 120);
+        B1.setBounds(20, 70, 120, 120);
 
-        B2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
+        B2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         B2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 B2MouseClicked(evt);
             }
         });
         jPanel1.add(B2);
-        B2.setBounds(150, 20, 120, 120);
+        B2.setBounds(140, 70, 120, 120);
 
-        B3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
+        B3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         B3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 B3MouseClicked(evt);
             }
         });
         jPanel1.add(B3);
-        B3.setBounds(270, 20, 120, 120);
+        B3.setBounds(260, 70, 120, 120);
         jPanel1.add(l3);
-        l3.setBounds(30, 20, 360, 360);
+        l3.setBounds(20, 70, 360, 360);
 
-        jButton1.setText("submit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        back.setBackground(new java.awt.Color(56, 176, 0));
+        back.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        back.setText("Back");
+        back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                backActionPerformed(evt);
             }
         });
+        jPanel1.add(back);
+        back.setBounds(460, 200, 100, 40);
 
+        jButton2.setBackground(new java.awt.Color(204, 51, 0));
+        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton2.setText("Clear");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton2);
+        jButton2.setBounds(460, 140, 100, 40);
+
+        jButton1.setBackground(new java.awt.Color(56, 176, 0));
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jButton1.setText("Submit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(460, 270, 100, 40);
+
+        jPanel2.setBackground(new java.awt.Color(56, 176, 0));
+
+        jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 1, 36)); // NOI18N
+        jLabel1.setText("Select Pattern");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(146, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(128, 128, 128))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(0, 0, 600, 50);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(26, 26, 26))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2)
-                            .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18))))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addComponent(jButton2)
-                        .addGap(58, 58, 58)
-                        .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(31, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
         );
 
         pack();
@@ -223,7 +238,7 @@ public class show extends javax.swing.JFrame {
     private void B1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B1MouseClicked
         // TODO add your handling code here:
         if (b1) {
-            B1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
+            B1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56,176,0), 3));
             SetPassword.blocklist += "1,";
             b1 = false;
         } else {
@@ -235,7 +250,7 @@ public class show extends javax.swing.JFrame {
     private void B8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B8MouseClicked
         // TODO add your handling code here:
         if (b8) {
-            B8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
+            B8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56,176,0), 3));
             SetPassword.blocklist += "8,";
             b8 = false;
         } else
@@ -244,17 +259,27 @@ public class show extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        B1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
-        B2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
-        B3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
-        B4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
-        B5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
-        B6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
-        B7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
-        B8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
-        B9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204)));
+        B1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0,0,0)));
+        B2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0,0,0)));
+        B3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0,0,0)));
+        B4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0,0,0)));
+        B5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0,0,0)));
+        B6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0,0,0)));
+        B7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0,0,0)));
+        B8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0,0,0)));
+        B9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0,0,0)));
 
         SetPassword.blocklist = "";
+            b1 = true;
+        b2 = true;
+        b3 = true;
+        b4 = true;
+        b5 = true;
+        b6 = true;
+        b7 = true;
+        b8 = true;
+        b9 = true;
+
 
 
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -278,7 +303,7 @@ public class show extends javax.swing.JFrame {
     private void B2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B2MouseClicked
         // TODO add your handling code here:
         if (b2) {
-            B2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
+            B2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56,176,0), 3));
             SetPassword.blocklist += "2,";
             b2 = false;
         } else
@@ -288,7 +313,7 @@ public class show extends javax.swing.JFrame {
     private void B3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B3MouseClicked
         // TODO add your handling code here:
         if (b3) {
-            B3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
+            B3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56,176,0), 3));
             SetPassword.blocklist += "3,";
             b3 = false;
         } else
@@ -298,7 +323,7 @@ public class show extends javax.swing.JFrame {
     private void B4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B4MouseClicked
         // TODO add your handling code here:
         if (b4) {
-            B4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
+            B4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56,176,0), 3));
             SetPassword.blocklist += "4,";
             b4 = false;
         } else
@@ -308,7 +333,7 @@ public class show extends javax.swing.JFrame {
     private void B5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B5MouseClicked
         // TODO add your handling code here:
         if (b5) {
-            B5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
+            B5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56,176,0), 3));
             SetPassword.blocklist += "5,";
             b5 = false;
         } else
@@ -318,7 +343,7 @@ public class show extends javax.swing.JFrame {
     private void B6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B6MouseClicked
         // TODO add your handling code here:
         if (b6) {
-            B6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
+            B6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56,176,0), 3));
             SetPassword.blocklist += "6,";
             b6 = false;
         } else
@@ -328,7 +353,7 @@ public class show extends javax.swing.JFrame {
     private void B7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B7MouseClicked
         // TODO add your handling code here:
         if (b7) {
-            B7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
+            B7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56,176,0), 3));
             SetPassword.blocklist += "7,";
             b7 = false;
         } else
@@ -338,7 +363,7 @@ public class show extends javax.swing.JFrame {
     private void B9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B9MouseClicked
         // TODO add your handling code here:
         if (b9) {
-            B9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 220), 3));
+            B9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56,176,0), 3));
             SetPassword.blocklist += "9,";
             b9 = false;
         } else
@@ -393,7 +418,9 @@ public class show extends javax.swing.JFrame {
     private javax.swing.JButton back;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     public static javax.swing.JLabel l3;
     // End of variables declaration//GEN-END:variables
 }
