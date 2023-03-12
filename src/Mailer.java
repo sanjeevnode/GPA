@@ -21,7 +21,7 @@ public class Mailer {
             
             String username ="graphicalpassauthentication";
 //            String pass="qfigicdwqhonvupa"; 
-            String pass ="qkorhzpyduvyhsic";
+            String pass ="lsekxpgttscbjhqd";
             
             
             Session session = Session.getInstance(properties, new Authenticator(){

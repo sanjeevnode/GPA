@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 public class hashing {
     public static String gethash(String pass){
        try{
-           MessageDigest md = MessageDigest.getInstance("SHA-256");
+           MessageDigest md = MessageDigest.getInstance("SHA-1");
            md.update(pass.getBytes());
            byte byteData[] =md.digest();
            StringBuilder sb =new StringBuilder();

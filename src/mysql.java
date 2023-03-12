@@ -149,10 +149,10 @@ public class mysql extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         String to,from,sub,msg;
-        to="shubhanshisd2003@gmail.com";
+        to="me.sanjeevks@gmail.com";
         from ="graphicalpassauthentication@gmail.com";
-        sub="Chicken khilawo ";
-        msg="Birthday me chicken khilawo";
+        sub="mail from java ";
+        msg="mail sent from java netbeans";
        
        boolean b= Mailer.send(to,from,sub,msg);
        
