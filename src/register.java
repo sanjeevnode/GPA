@@ -1,8 +1,8 @@
 
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+
+import java.text.DecimalFormat;
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 /*
@@ -19,8 +19,10 @@ public class register extends javax.swing.JFrame {
     /**
      * Creates new form register
      */
+    public static String otp;
     public register() {
         initComponents();
+        otp="";
     }
 
     /**
@@ -135,6 +137,7 @@ public class register extends javax.swing.JFrame {
             }
         });
 
+        genderButtongroup.add(maleRadioButton);
         maleRadioButton.setText("Male");
         maleRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,6 +145,7 @@ public class register extends javax.swing.JFrame {
             }
         });
 
+        genderButtongroup.add(femaleRadioButton1);
         femaleRadioButton1.setText("Female");
         femaleRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,6 +180,7 @@ public class register extends javax.swing.JFrame {
             }
         });
 
+        genderButtongroup.add(otherRaadioButton);
         otherRaadioButton.setText("Other");
         otherRaadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -335,13 +340,29 @@ public class register extends javax.swing.JFrame {
     private void ageTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ageTextFieldActionPerformed
-
+public static String generateotp(){
+   return new DecimalFormat("000000").format(new Random().nextInt(999999));
+}
     private void verifyemailjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verifyemailjButtonActionPerformed
         // TODO add your handling code here:
+        String email = emailTextField.getText();
+        otp = generateotp();
+        boolean flag = Mailer.sendemail(email, otp);
+        if (flag){
+            new emailverify().setVisible(true);
+//        this.setEnabled(false);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Unable to send OTP to \n"+email, "Error", JOptionPane.ERROR_MESSAGE);
+        }
+            
+        
     }//GEN-LAST:event_verifyemailjButtonActionPerformed
 
     private void signupjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupjButtonActionPerformed
         // TODO add your handling code here:
+        new login().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_signupjButtonActionPerformed
 
     private void setpasswordjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setpasswordjButtonActionPerformed
@@ -415,7 +436,7 @@ public class register extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     public static javax.swing.JTextField lastnameTextField;
     public static javax.swing.JRadioButton maleRadioButton;
-    private javax.swing.JRadioButton otherRaadioButton;
+    public static javax.swing.JRadioButton otherRaadioButton;
     public static javax.swing.JTextField phoneTextField;
     private javax.swing.JButton setpasswordjButton;
     private javax.swing.JButton signupjButton;

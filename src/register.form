@@ -358,6 +358,9 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="maleRadioButton">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="genderButtongroup"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Male"/>
                   </Properties>
                   <Events>
@@ -369,6 +372,9 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="femaleRadioButton1">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="genderButtongroup"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Female"/>
                   </Properties>
                   <Events>
@@ -422,11 +428,17 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="otherRaadioButton">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="genderButtongroup"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Other"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="otherRaadioButtonActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>

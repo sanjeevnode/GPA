@@ -224,6 +224,7 @@ public class show extends javax.swing.JFrame {
         // TODO add your handling code here:
         SetPassword.imagelist = "";
         SetPassword.blocklist = "";
+        SetPassword.layerlist="";
         if (SetPassword.s.empty()) {
             SetPassword.layer1flag = true;
             SetPassword.layer2flag = true;
