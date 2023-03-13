@@ -7,7 +7,7 @@ import javax.mail.internet.MimeMessage;
 
 public class Mailer {
 
-    public static boolean send(String to, String from,String subject, String msg) {
+    private  static boolean send(String to, String from,String subject, String msg) {
             boolean flag =false;
         
             
@@ -54,5 +54,16 @@ public class Mailer {
             
             
            return flag;
+    }
+    public static boolean sendemail(String to ,String otp){
+         String from,sub,msg;
+        from ="graphicalpassauthentication@gmail.com";
+        sub="Graphical Password Authentication";
+        msg="Your One time Verification password for Graphical Password Authentication is : "+otp;
+        
+        boolean flag;
+        flag = send(to,from,sub,msg);
+        
+        return flag;
     }
 }
