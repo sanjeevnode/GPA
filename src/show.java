@@ -157,7 +157,7 @@ public class show extends javax.swing.JFrame {
             }
         });
         jPanel1.add(back);
-        back.setBounds(460, 200, 100, 40);
+        back.setBounds(460, 140, 100, 40);
 
         jButton2.setBackground(new java.awt.Color(204, 51, 0));
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -168,7 +168,7 @@ public class show extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(460, 140, 100, 40);
+        jButton2.setBounds(460, 210, 100, 40);
 
         jButton1.setBackground(new java.awt.Color(56, 176, 0));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -179,7 +179,7 @@ public class show extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(460, 270, 100, 40);
+        jButton1.setBounds(460, 280, 100, 40);
 
         jPanel2.setBackground(new java.awt.Color(56, 176, 0));
 
