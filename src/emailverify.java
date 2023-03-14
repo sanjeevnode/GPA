@@ -48,6 +48,7 @@ public class emailverify extends javax.swing.JFrame {
         resendButton.setBackground(new java.awt.Color(56, 176, 0));
         resendButton.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         resendButton.setText("Resend");
+        resendButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         resendButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resendButtonActionPerformed(evt);
@@ -57,6 +58,7 @@ public class emailverify extends javax.swing.JFrame {
         submitButton.setBackground(new java.awt.Color(176, 82, 240));
         submitButton.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         submitButton.setText("Submit");
+        submitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitButtonActionPerformed(evt);
@@ -66,6 +68,7 @@ public class emailverify extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(56, 176, 0));
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton3.setText("Cancel");
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
