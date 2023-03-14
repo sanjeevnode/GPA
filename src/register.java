@@ -1,16 +1,18 @@
+
 import javax.swing.JOptionPane;
 
 public class register extends javax.swing.JFrame {
 
-
     public static String otp;
     public static boolean verify;
+
     public register() {
         initComponents();
-        otp="";
-        verify=false;
-       
+        otp = "";
+        verify = false;
+
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -327,19 +329,17 @@ public class register extends javax.swing.JFrame {
         // TODO add your handling code here:
         String email = emailTextField.getText();
         otp = Mailer.generateotp();
-        String msg="Your One time Verification password for Graphical Password Authentication is : "+otp;
+        String msg = "Your One time Verification password for Graphical Password Authentication is : " + otp;
         boolean flag = Mailer.sendemail(email, msg);
-        if (flag){
+        if (flag) {
             new emailverify().setVisible(true);
-            emailverify.task="register";
+            emailverify.task = "register";
             emailverify.vEmailField.setText(emailTextField.getText());
 //        this.setEnabled(false);
+        } else {
+            JOptionPane.showMessageDialog(null, "Unable to send OTP to \n" + email, "Error", JOptionPane.ERROR_MESSAGE);
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Unable to send OTP to \n"+email, "Error", JOptionPane.ERROR_MESSAGE);
-        }
-            
-        
+
     }//GEN-LAST:event_verifyemailjButtonActionPerformed
 
     private void signupjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupjButtonActionPerformed
@@ -350,15 +350,14 @@ public class register extends javax.swing.JFrame {
 
     private void setpasswordjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setpasswordjButtonActionPerformed
         // TODO add your handling code here:
-        if (verify){
+        if (verify) {
             new SetPassword().setVisible(true);
-        this.setVisible(false);
-        this.dispose();
-        }else{
+            this.setVisible(false);
+            this.dispose();
+        } else {
             JOptionPane.showMessageDialog(null, "Please verify email first ", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        
-      
+
     }//GEN-LAST:event_setpasswordjButtonActionPerformed
 
     private void firstnameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstnameTextFieldActionPerformed

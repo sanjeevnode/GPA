@@ -5,39 +5,36 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
-
 public class profile extends javax.swing.JFrame {
 
     /**
      * Creates new form profile
      */
     private String email;
+
     public profile() {
         initComponents();
-         email = login.LoginEmail;
-        
-        try{
-        Connection con = database.db();
-        Statement stm = con.createStatement();
-        String sql = "select * from users where Email = '"+email+"'; ";
-        ResultSet rs = stm.executeQuery(sql);
-        if(rs.next())
-        {
-            usernameLabel.setText(rs.getString("Firstname")+" "+rs.getNString("Lastname"));
-            emailLabel.setText(email);
-            phoneLabel.setText(rs.getString("Phone"));
-            ageLabel.setText(""+rs.getInt("Age"));
-            genderLabel.setText(rs.getString("Gender"));
+        email = login.LoginEmail;
+
+        try {
+            Connection con = database.db();
+            Statement stm = con.createStatement();
+            String sql = "select * from users where Email = '" + email + "'; ";
+            ResultSet rs = stm.executeQuery(sql);
+            if (rs.next()) {
+                usernameLabel.setText(rs.getString("Firstname") + " " + rs.getNString("Lastname"));
+                emailLabel.setText(email);
+                phoneLabel.setText(rs.getString("Phone"));
+                ageLabel.setText("" + rs.getInt("Age"));
+                genderLabel.setText(rs.getString("Gender"));
+            } else {
+                JOptionPane.showMessageDialog(null, "Unable to find your account", "Error !!", 3);
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error !!", 3);
         }
-        else 
-           JOptionPane.showMessageDialog(null, "Unable to find your account","Error !!", 3); 
-        
-        }
-        catch(SQLException e){
-            JOptionPane.showMessageDialog(null, e.getMessage(),"Error !!", 3);
-        }
-        
-        
+
     }
 
     /**
@@ -283,17 +280,17 @@ public class profile extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         int button = JOptionPane.showConfirmDialog(null, "Are you sure you  want to Sign out", "Message", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
-        if(button==0){
+        if (button == 0) {
             new login().setVisible(true);
-        this.setVisible(false);
+            this.setVisible(false);
         }
-        
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         int button = JOptionPane.showConfirmDialog(null, "Are you sure you  want to Delete your account", "Message", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if (button ==0){
+        if (button == 0) {
             try {
                 Connection con = database.db();
                 String sql = "delete from users where email = '" + email + "';";
@@ -310,15 +307,15 @@ public class profile extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-public static void close(){
-    
-}
+    public static void close() {
+
+    }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         int button = JOptionPane.showConfirmDialog(null, "Are you sure you  want to Reset your password", "Message", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if (button ==0){  
+        if (button == 0) {
             new SetPassword().setVisible(true);
-            SetPassword.task="update";
+            SetPassword.task = "update";
             this.setVisible(false);
             this.dispose();
         }

@@ -5,7 +5,6 @@ import javax.swing.JOptionPane;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Sachin Kumar
@@ -15,11 +14,12 @@ public class login extends javax.swing.JFrame {
     /**
      * Creates new form login
      */
-    public static String LoginEmail,otp;
+    public static String LoginEmail, otp;
+
     public login() {
         initComponents();
-        LoginEmail="";
-        otp="";
+        LoginEmail = "";
+        otp = "";
     }
 
     /**
@@ -188,16 +188,16 @@ public class login extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        SetPassword.task="register";
+        SetPassword.task = "register";
         new register().setVisible(true);
         this.setVisible(false);
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        SetPassword.task="login";
-        LoginEmail=lemailTextField.getText();
+        SetPassword.task = "login";
+        LoginEmail = lemailTextField.getText();
         new SetPassword().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -208,7 +208,7 @@ public class login extends javax.swing.JFrame {
 
     private void forgotpasswordLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotpasswordLabelMouseEntered
         // TODO add your handling code here:
-        
+
         forgotpasswordLabel.setForeground(new java.awt.Color(0, 51, 204));
     }//GEN-LAST:event_forgotpasswordLabelMouseEntered
 
@@ -220,25 +220,23 @@ public class login extends javax.swing.JFrame {
 
     private void forgotpasswordLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotpasswordLabelMouseClicked
         // TODO add your handling code here:
-        if ("".equals(lemailTextField.getText())){
+        if ("".equals(lemailTextField.getText())) {
             JOptionPane.showMessageDialog(null, "Please enter your Email !", "Message", JOptionPane.WARNING_MESSAGE);
-        }
-        else{
+        } else {
             String email = lemailTextField.getText();
-        otp = Mailer.generateotp();
-        String msg="Your One time Verification password for Graphical Password Authentication is : "+otp;
-        boolean flag = Mailer.sendemail(email, msg);
-        if (flag){
-            new emailverify().setVisible(true);
-            emailverify.task="update";
-            emailverify.vEmailField.setText(lemailTextField.getText());
+            otp = Mailer.generateotp();
+            String msg = "Your One time Verification password for Graphical Password Authentication is : " + otp;
+            boolean flag = Mailer.sendemail(email, msg);
+            if (flag) {
+                new emailverify().setVisible(true);
+                emailverify.task = "update";
+                emailverify.vEmailField.setText(lemailTextField.getText());
 //        this.setEnabled(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "Unable to send OTP to \n" + email, "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Unable to send OTP to \n"+email, "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        }
-        
+
     }//GEN-LAST:event_forgotpasswordLabelMouseClicked
 
     /**

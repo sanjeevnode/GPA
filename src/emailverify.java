@@ -5,9 +5,11 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.Connection;
 import java.sql.SQLException;
+
 public class emailverify extends javax.swing.JFrame {
 
     public static String task, otp;
+
     public emailverify() {
         initComponents();
         task = "";
@@ -148,61 +150,59 @@ public class emailverify extends javax.swing.JFrame {
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         // TODO add your handling code here:
-        if(task.equals("register")){
+        if (task.equals("register")) {
             String newotp = otpTextField.getText();
-        if (newotp.equals(register.otp)) {
-            JOptionPane.showMessageDialog(null, "Email verified Sucessfully", "Message", JOptionPane.INFORMATION_MESSAGE);
-            register.verify=true;
-            this.setVisible(false);
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(null, "OTP does not match", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        }
-        else if(task.equals("update")){
+            if (newotp.equals(register.otp)) {
+                JOptionPane.showMessageDialog(null, "Email verified Sucessfully", "Message", JOptionPane.INFORMATION_MESSAGE);
+                register.verify = true;
+                this.setVisible(false);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "OTP does not match", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else if (task.equals("update")) {
             String newotp = otpTextField.getText();
-        if (newotp.equals(login.otp)) {
-            
-            try{
-                Connection con =database.db();
-                String email = login.lemailTextField.getText();
-                String sql1 = "select * from keymap where Email = '"+email+"';";
-                Statement stm = con.createStatement();
-                ResultSet rs = stm.executeQuery(sql1);
-                
-                if (rs.next()){
-                    String hashcode =  rs.getString("hash");
-                    
-                    String sql2 = "select * from passkeys where hash = '"+hashcode+"';";
-                    Statement stm1 = con.createStatement();
-                    ResultSet rs1 = stm1.executeQuery(sql2);
-                    if(rs1.next()){
-                        String key = rs1.getString("value");
-                        String msg ="Your password is : '"+hashing.dcrypt(key)+"'";
-                        boolean flag = Mailer.sendemail(email,msg);
-                        if(flag){
-                            JOptionPane.showMessageDialog(null, "An email is sent to you contaning your password .", "Message", JOptionPane.INFORMATION_MESSAGE);
-                        }else{
-                            JOptionPane.showMessageDialog(null, "Unable to sent your password", "Error", JOptionPane.ERROR_MESSAGE);
+            if (newotp.equals(login.otp)) {
+
+                try {
+                    Connection con = database.db();
+                    String email = login.lemailTextField.getText();
+                    String sql1 = "select * from keymap where Email = '" + email + "';";
+                    Statement stm = con.createStatement();
+                    ResultSet rs = stm.executeQuery(sql1);
+
+                    if (rs.next()) {
+                        String hashcode = rs.getString("hash");
+
+                        String sql2 = "select * from passkeys where hash = '" + hashcode + "';";
+                        Statement stm1 = con.createStatement();
+                        ResultSet rs1 = stm1.executeQuery(sql2);
+                        if (rs1.next()) {
+                            String key = rs1.getString("value");
+                            String msg = "Your password is : '" + hashing.dcrypt(key) + "'";
+                            boolean flag = Mailer.sendemail(email, msg);
+                            if (flag) {
+                                JOptionPane.showMessageDialog(null, "An email is sent to you contaning your password .", "Message", JOptionPane.INFORMATION_MESSAGE);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Unable to sent your password", "Error", JOptionPane.ERROR_MESSAGE);
+                            }
+
+                        } else {
+                            JOptionPane.showMessageDialog(null, "User not exists !", "Error", JOptionPane.ERROR_MESSAGE);
                         }
-                        
-                    }else{
-                        JOptionPane.showMessageDialog(null, "User not exists !", "Error", JOptionPane.ERROR_MESSAGE);
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "User not exists", "Error", JOptionPane.ERROR_MESSAGE);
                     }
-                    
-                }else{
-                    JOptionPane.showMessageDialog(null, "User not exists", "Error", JOptionPane.ERROR_MESSAGE);
+
+                } catch (HeadlessException | SQLException e) {
+
                 }
-                
+                this.setVisible(false);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "OTP does not match", "Error", JOptionPane.ERROR_MESSAGE);
             }
-            catch(HeadlessException | SQLException e){
-                
-            }
-            this.setVisible(false);
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(null, "OTP does not match", "Error", JOptionPane.ERROR_MESSAGE);
-        }
         }
     }//GEN-LAST:event_submitButtonActionPerformed
 
@@ -212,9 +212,9 @@ public class emailverify extends javax.swing.JFrame {
             vEmailField.setText("");
             String email = register.emailTextField.getText();
             otp = Mailer.generateotp();
-            String msg="Your One time Verification password for Graphical Password Authentication is : "+otp;
-            register.otp=otp;
-            boolean flag = Mailer.sendemail(email,msg);
+            String msg = "Your One time Verification password for Graphical Password Authentication is : " + otp;
+            register.otp = otp;
+            boolean flag = Mailer.sendemail(email, msg);
             if (flag) {
                 JOptionPane.showMessageDialog(null, "otp send to email sucessfully ", "Message", JOptionPane.INFORMATION_MESSAGE);
             } else {
@@ -224,8 +224,8 @@ public class emailverify extends javax.swing.JFrame {
             vEmailField.setText("");
             String email = login.lemailTextField.getText();
             otp = Mailer.generateotp();
-            String msg="Your One time Verification password for Graphical Password Authentication is : "+otp;
-            login.otp=otp;
+            String msg = "Your One time Verification password for Graphical Password Authentication is : " + otp;
+            login.otp = otp;
             boolean flag = Mailer.sendemail(email, msg);
             if (flag) {
                 JOptionPane.showMessageDialog(null, "otp send to email sucessfully ", "Message", JOptionPane.INFORMATION_MESSAGE);
