@@ -163,18 +163,17 @@ public class emailverify extends javax.swing.JFrame {
         } else if (task.equals("update")) {
             String newotp = otpTextField.getText();
             if (newotp.equals(login.otp)) {
-
                 try {
                     Connection con = database.db();
                     String email = login.lemailTextField.getText();
-                    String sql1 = "select * from keymap where Email = '" + email + "';";
+                    String sql1 = "select * from users where Email = '" + email + "';";
                     Statement stm = con.createStatement();
                     ResultSet rs = stm.executeQuery(sql1);
 
                     if (rs.next()) {
-                        String hashcode = rs.getString("hash");
+                        String hashcode = rs.getString("hashcode");
 
-                        String sql2 = "select * from passkeys where hash = '" + hashcode + "';";
+                        String sql2 = "select * from hashmap where hashcode = '" + hashcode + "';";
                         Statement stm1 = con.createStatement();
                         ResultSet rs1 = stm1.executeQuery(sql2);
                         if (rs1.next()) {
@@ -182,7 +181,7 @@ public class emailverify extends javax.swing.JFrame {
                             String msg = "Your password is : '" + hashing.dcrypt(key) + "'";
                             boolean flag = Mailer.sendemail(email, msg);
                             if (flag) {
-                                JOptionPane.showMessageDialog(null, "An email is sent to you contaning your password .", "Message", JOptionPane.INFORMATION_MESSAGE);
+                                JOptionPane.showMessageDialog(null, "An email has been  sent to you contaning your password.", "Message", JOptionPane.INFORMATION_MESSAGE);
                             } else {
                                 JOptionPane.showMessageDialog(null, "Unable to sent your password", "Error", JOptionPane.ERROR_MESSAGE);
                             }
@@ -192,7 +191,7 @@ public class emailverify extends javax.swing.JFrame {
                         }
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "User not exists", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "User not exists1", "Error", JOptionPane.ERROR_MESSAGE);
                     }
 
                 } catch (HeadlessException | SQLException e) {

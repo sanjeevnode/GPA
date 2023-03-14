@@ -1269,7 +1269,7 @@ public class SetPassword extends javax.swing.JFrame {
 
                     Connection con = database.db();
 
-                    String sqlUsers = "insert into users values(?,?,?,?,?,?);";
+                    String sqlUsers = "insert into users values(?,?,?,?,?,?,?);";
                     PreparedStatement pst1 = con.prepareStatement(sqlUsers);
                     pst1.setString(1, register.firstnameTextField.getText());
                     pst1.setString(2, register.lastnameTextField.getText());
@@ -1277,19 +1277,20 @@ public class SetPassword extends javax.swing.JFrame {
                     pst1.setString(4, register.phoneTextField.getText());
                     pst1.setInt(5, Integer.parseInt(register.ageTextField.getText()));
                     pst1.setString(6, gender);
+                    pst1.setString(7, hashpass);
                     pst1.execute();
 
-                    String sqlhash = "insert into passkeys values(?,?);";
+                    String sqlhash = "insert into hashmap values(?,?);";
                     PreparedStatement pst2 = con.prepareStatement(sqlhash);
                     pst2.setString(1, hashpass);
                     pst2.setString(2, hashing.encrypt(pass));
                     pst2.execute();
 
-                    String sqlhashuser = "insert into keymap values(?,?);";
-                    PreparedStatement pst3 = con.prepareStatement(sqlhashuser);
-                    pst3.setString(1, register.emailTextField.getText());
-                    pst3.setString(2, hashpass);
-                    pst3.execute();
+//                    String sqlhashuser = "insert into keymap values(?,?);";
+//                    PreparedStatement pst3 = con.prepareStatement(sqlhashuser);
+//                    pst3.setString(1, register.emailTextField.getText());
+//                    pst3.setString(2, hashpass);
+//                    pst3.execute();
 
 //                    JOptionPane.showMessageDialog(null, pass, "password", JOptionPane.INFORMATION_MESSAGE);
                     new login().setVisible(true);
@@ -1309,7 +1310,7 @@ public class SetPassword extends javax.swing.JFrame {
 
                     getpass(s);
                     String hashpass = hashing.gethash(pass);
-                    String sql = "select * from keymap where email = '" + login.LoginEmail + "' and hash = '" + hashpass + "';";
+                    String sql = "select * from users where email = '" + login.LoginEmail + "' and hashcode = '" + hashpass + "';";
 //                    JOptionPane.showMessageDialog(null, pass, "password", JOptionPane.INFORMATION_MESSAGE);
 
                     ResultSet rs = stm.executeQuery(sql);
@@ -1339,13 +1340,13 @@ public class SetPassword extends javax.swing.JFrame {
 
                     Connection con = database.db();
 
-                    String sqlhash = "insert into passkeys values(?,?);";
+                    String sqlhash = "insert into hashmap values(?,?);";
                     PreparedStatement pst2 = con.prepareStatement(sqlhash);
                     pst2.setString(1, hashpass);
                     pst2.setString(2, hashing.encrypt(pass));
                     pst2.execute();
 
-                    String sqlhashuser = "update keymap set hash = ? where Email =?;";
+                    String sqlhashuser = "update users set hashcode = ? where Email =?;";
                     PreparedStatement pst3 = con.prepareStatement(sqlhashuser);
                     pst3.setString(1, hashpass);
                     pst3.setString(2, login.LoginEmail);

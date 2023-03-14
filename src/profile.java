@@ -296,9 +296,9 @@ public class profile extends javax.swing.JFrame {
                 String sql = "delete from users where email = '" + email + "';";
                 Statement stm1 = con.createStatement();
                 stm1.executeUpdate(sql);
-                String sql1 = "delete from keymap where email = '" + email + "';";
-                Statement stm2 = con.createStatement();
-                stm2.executeUpdate(sql);
+//                String sql1 = "delete from keymap where email = '" + email + "';";
+//                Statement stm2 = con.createStatement();
+//                stm2.executeUpdate(sql);
                 new login().setVisible(true);
                 this.setVisible(false);
                 dispose();
