@@ -209,7 +209,7 @@ public class emailverify extends javax.swing.JFrame {
     private void resendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resendButtonActionPerformed
         // TODO add your handling code here:
         if (task.equals("register")) {
-            vEmailField.setText("");
+            otpTextField.setText("");
             String email = register.emailTextField.getText();
             otp = Mailer.generateotp();
             String msg = "Your One time Verification password for Graphical Password Authentication is : " + otp;
@@ -221,7 +221,7 @@ public class emailverify extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Unable to send OTP to \n" + email, "Error", JOptionPane.ERROR_MESSAGE);
             }
         } else if (task.equals("update")) {
-            vEmailField.setText("");
+            otpTextField.setText("");
             String email = login.lemailTextField.getText();
             otp = Mailer.generateotp();
             String msg = "Your One time Verification password for Graphical Password Authentication is : " + otp;
