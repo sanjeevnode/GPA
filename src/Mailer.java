@@ -1,5 +1,7 @@
 
+import java.text.DecimalFormat;
 import java.util.Properties;
+import java.util.Random;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -59,11 +61,14 @@ public class Mailer {
          String from,sub,msg;
         from ="graphicalpassauthentication@gmail.com";
         sub="Graphical Password Authentication";
-        msg="Your One time Verification password for Graphical Password Authentication is : "+otp;
+        msg=otp;
         
         boolean flag;
         flag = send(to,from,sub,msg);
         
         return flag;
     }
+    public static String generateotp(){
+   return new DecimalFormat("000000").format(new Random().nextInt(999999));
+}
 }

@@ -1,6 +1,7 @@
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 
 
 public class hashing {
@@ -21,6 +22,12 @@ public class hashing {
            return null;
        }
         
+    }
+    public static String encrypt(String s){
+        return new String(Base64.getEncoder().encode(s.getBytes()));
+    }
+    public static String dcrypt(String s){
+        return new String(Base64.getDecoder().decode(s));
     }
     
 }

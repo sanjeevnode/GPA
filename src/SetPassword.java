@@ -197,7 +197,7 @@ public class SetPassword extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(56, 176, 0));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton1.setText("Back");
+        jButton1.setText("Canncel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -882,7 +882,15 @@ public class SetPassword extends javax.swing.JFrame {
         imagelist="";
         layerlist="";
         pass="";
-        new register().setVisible(true);
+        
+        if(task.equals("login")){
+            new login().setVisible(true); 
+        }
+        else if(task.equals("register"))  
+            new register().setVisible(true);
+        else
+            new login().setVisible(true); 
+
         this.setVisible(false);
         this.dispose();
 
@@ -1244,82 +1252,128 @@ public class SetPassword extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void L3finishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_L3finishActionPerformed
-        if(task.equals("register")){
-            
-        try {
-            getpass(s);
-            
-            
-            String hashpass = hashing.gethash(pass);
-            String gender ="";
-            if (register.maleRadioButton.isSelected())  
-                gender="Male";
-            else if (register.femaleRadioButton1.isSelected())
-                    gender ="Female";
-            else if(register.otherRaadioButton.isSelected())
-                    gender ="Other";
-           
-            
-           Connection con = database.db();
-           
-            String sqlUsers = "insert into users values(?,?,?,?,?,?,?);";
-            PreparedStatement pst1 =con.prepareStatement(sqlUsers);
-            pst1.setString(1,register.firstnameTextField.getText());
-            pst1.setString(2,register.lastnameTextField.getText());
-            pst1.setString(3,register.emailTextField.getText());
-            pst1.setString(4,register.phoneTextField.getText());
-            pst1.setInt(5,Integer.parseInt(register.ageTextField.getText()));
-            pst1.setString(6,gender);
-            pst1.setString(7,hashpass);
-            pst1.execute();
-
-            
-            
-            String sqlhash = "insert into hashmap values(?,?);";
-            PreparedStatement pst2 =con.prepareStatement(sqlhash);
-            pst2.setString(1,hashpass);
-            pst2.setString(2,pass);
-            pst2.execute();
-            
-            JOptionPane.showMessageDialog(null, pass, "password", JOptionPane.INFORMATION_MESSAGE);
-            
-            new login().setVisible(true);
-            this.setVisible(false);
-            this.dispose();
-       }
-        catch (SQLException e){
-            JOptionPane.showMessageDialog(null, e.getMessage());
-           
-        }
-        }
-        else if (task.equals("login")){
-            JOptionPane.showMessageDialog(null, "Login page", "Login", JOptionPane.INFORMATION_MESSAGE);
-            try{
-                Connection con = database.db();
-                Statement stm = con.createStatement();
-                
-                getpass(s);
-                String hashpass = hashing.gethash(pass);
-                String sql = "select * from users where email = '"+login.LoginEmail+"' and hashcode = '"+hashpass+"';";
-                JOptionPane.showMessageDialog(null, pass, "password", JOptionPane.INFORMATION_MESSAGE);
-                
-                
-                ResultSet rs = stm.executeQuery(sql);
-                
-                if (rs.next()){
-                    new profile().setVisible(true);
+        switch (task) {
+            case "register" -> {
+                try {
+                    getpass(s);
+                    
+                    
+                    String hashpass = hashing.gethash(pass);
+                    String gender ="";
+                    if (register.maleRadioButton.isSelected())
+                        gender="Male";
+                    else if (register.femaleRadioButton1.isSelected())
+                        gender ="Female";
+                    else if(register.otherRaadioButton.isSelected())
+                        gender ="Other";
+                    
+                    
+                    Connection con = database.db();
+                    
+                    String sqlUsers = "insert into users values(?,?,?,?,?,?);";
+                    PreparedStatement pst1 =con.prepareStatement(sqlUsers);
+                    pst1.setString(1,register.firstnameTextField.getText());
+                    pst1.setString(2,register.lastnameTextField.getText());
+                    pst1.setString(3,register.emailTextField.getText());
+                    pst1.setString(4,register.phoneTextField.getText());
+                    pst1.setInt(5,Integer.parseInt(register.ageTextField.getText()));
+                    pst1.setString(6,gender);
+                    pst1.execute();
+                    
+                    
+                    String sqlhash = "insert into passkeys values(?,?);";
+                    PreparedStatement pst2 =con.prepareStatement(sqlhash);
+                    pst2.setString(1,hashpass);
+                    pst2.setString(2,hashing.encrypt(pass));
+                    pst2.execute();
+                    
+                    
+                    String sqlhashuser = "insert into keymap values(?,?);";
+                    PreparedStatement pst3 =con.prepareStatement(sqlhashuser);
+                    pst3.setString(1,register.emailTextField.getText());
+                    pst3.setString(2,hashpass);
+                    pst3.execute();
+                    
+//                    JOptionPane.showMessageDialog(null, pass, "password", JOptionPane.INFORMATION_MESSAGE);
+                    
+                    new login().setVisible(true);
                     this.setVisible(false);
-
+                    this.dispose();
                 }
-                else{
-                    JOptionPane.showMessageDialog(null, "Login fail", "Login", JOptionPane.INFORMATION_MESSAGE);
+                catch (SQLException e){
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                    
                 }
                 
             }
-            catch (SQLException e){
-            JOptionPane.showMessageDialog(null, e.getMessage());
-           
-        }
+            case "login" -> {
+//                JOptionPane.showMessageDialog(null, "Login page", "Login", JOptionPane.INFORMATION_MESSAGE);
+                try{
+                    Connection con = database.db();
+                    Statement stm = con.createStatement();
+                    
+                    getpass(s);
+                    String hashpass = hashing.gethash(pass);
+                    String sql = "select * from keymap where email = '"+login.LoginEmail+"' and hash = '"+hashpass+"';";
+//                    JOptionPane.showMessageDialog(null, pass, "password", JOptionPane.INFORMATION_MESSAGE);
+                    
+                    
+                    ResultSet rs = stm.executeQuery(sql);
+                    
+                    if (rs.next()){
+                        new profile().setVisible(true);
+                        this.setVisible(false);
+                        this.dispose();
+                        
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Signin fail", "Login", JOptionPane.INFORMATION_MESSAGE);
+                        new login().setVisible(true);
+                        this.setVisible(false);
+                        this.dispose();
+                    }
+                    
+                }
+                catch (SQLException e){
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                    
+                }
+            }
+            case "update" -> {
+                try {
+                    getpass(s);
+
+                    String hashpass = hashing.gethash(pass);
+
+                    Connection con = database.db();
+
+                    String sqlhash = "insert into passkeys values(?,?);";
+                    PreparedStatement pst2 =con.prepareStatement(sqlhash);
+                    pst2.setString(1,hashpass);
+                    pst2.setString(2,hashing.encrypt(pass));
+                    pst2.execute();
+                    
+                    
+                    String sqlhashuser = "update keymap set hash = ? where Email =?;";
+                    PreparedStatement pst3 =con.prepareStatement(sqlhashuser);
+                    pst3.setString(1,hashpass);
+                    pst3.setString(2,login.LoginEmail); 
+                    pst3.execute();
+                    
+                    JOptionPane.showMessageDialog(null, "Password Update please Sign in again ", "Message", JOptionPane.INFORMATION_MESSAGE);
+                    
+                    new login().setVisible(true);
+                    this.setVisible(false);
+                    this.dispose();
+                }
+                catch (SQLException e){
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                    
+                }
+            }
+            default -> {
+                
+            }
         }
         
         
