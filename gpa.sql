@@ -39,51 +39,27 @@ INSERT INTO `data` VALUES ('sanjeev',12345),('sanjeev',12345),('ramu',12345),('k
 UNLOCK TABLES;
 
 --
--- Table structure for table `keymap`
+-- Table structure for table `hashmap`
 --
 
-DROP TABLE IF EXISTS `keymap`;
+DROP TABLE IF EXISTS `hashmap`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `keymap` (
-  `Email` varchar(40) NOT NULL,
-  `hash` varchar(128) NOT NULL,
-  PRIMARY KEY (`Email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `keymap`
---
-
-LOCK TABLES `keymap` WRITE;
-/*!40000 ALTER TABLE `keymap` DISABLE KEYS */;
-INSERT INTO `keymap` VALUES ('me.sanjeevks@gmail.com','ad08ce6b31e7cc609006f65a0a790bf01e5d5e92');
-/*!40000 ALTER TABLE `keymap` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `passkeys`
---
-
-DROP TABLE IF EXISTS `passkeys`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `passkeys` (
-  `hash` varchar(128) NOT NULL,
+CREATE TABLE `hashmap` (
+  `hashcode` varchar(128) NOT NULL,
   `value` varchar(1000) NOT NULL,
-  PRIMARY KEY (`hash`)
+  PRIMARY KEY (`hashcode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `passkeys`
+-- Dumping data for table `hashmap`
 --
 
-LOCK TABLES `passkeys` WRITE;
-/*!40000 ALTER TABLE `passkeys` DISABLE KEYS */;
-INSERT INTO `passkeys` VALUES ('1ea26022c240cddf14f11c86785db80406394356','TGF5ZXJfMSA6IGlyb25tYW5fNSxMYXllcl8yIDogc3BpZGVybWFuXzUsTGF5ZXJfMyA6IHNoaXZhXzUs'),('ad08ce6b31e7cc609006f65a0a790bf01e5d5e92','TGF5ZXJfMSA6IGNhdF81LExheWVyXzIgOiBsaW9uXzUsTGF5ZXJfMyA6IHN3YW5fNSw=');
-/*!40000 ALTER TABLE `passkeys` ENABLE KEYS */;
+LOCK TABLES `hashmap` WRITE;
+/*!40000 ALTER TABLE `hashmap` DISABLE KEYS */;
+INSERT INTO `hashmap` VALUES ('1ea26022c240cddf14f11c86785db80406394356','TGF5ZXJfMSA6IGlyb25tYW5fNSxMYXllcl8yIDogc3BpZGVybWFuXzUsTGF5ZXJfMyA6IHNoaXZhXzUs'),('51f5dc3b6423c788598c4d8eebc88c70ecb10b87','TGF5ZXJfMSA6IGRvZ181LExheWVyXzIgOiBlbGVwaGFudF81LExheWVyXzMgOiBzd2FuXzUs');
+/*!40000 ALTER TABLE `hashmap` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -100,6 +76,7 @@ CREATE TABLE `users` (
   `Phone` varchar(10) NOT NULL,
   `Age` int NOT NULL,
   `Gender` varchar(10) NOT NULL,
+  `hashcode` varchar(128) NOT NULL,
   PRIMARY KEY (`Email`),
   UNIQUE KEY `Phone` (`Phone`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -111,7 +88,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('sa','sa','me.sanjeevks@gmail.com','sa',22,'Male');
+INSERT INTO `users` VALUES ('sa','sa','me.sanjeevks@gmail.com','99',11,'Male','51f5dc3b6423c788598c4d8eebc88c70ecb10b87');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -124,4 +101,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-14 16:41:39
+-- Dump completed on 2023-03-14 17:38:44
