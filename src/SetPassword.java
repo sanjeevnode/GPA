@@ -1306,10 +1306,6 @@ public class SetPassword extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, e.getMessage());
 
                 }
-
-            }
-            case "login" -> {
-//                JOptionPane.showMessageDialog(null, "Login page", "Login", JOptionPane.INFORMATION_MESSAGE);
                 try {
                     Connection con = database.db();
                     Statement stm = con.createStatement();
@@ -1337,6 +1333,10 @@ public class SetPassword extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, e.getMessage());
 
                 }
+            }
+            case "login" -> {
+//                JOptionPane.showMessageDialog(null, "Login page", "Login", JOptionPane.INFORMATION_MESSAGE);
+
             }
             case "update" -> {
                 try {

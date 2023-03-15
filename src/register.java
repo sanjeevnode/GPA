@@ -1,5 +1,9 @@
 
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 public class register extends javax.swing.JFrame {
@@ -201,7 +205,7 @@ public class register extends javax.swing.JFrame {
 
         signupjButton.setBackground(new java.awt.Color(56, 176, 0));
         signupjButton.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        signupjButton.setText("Sign Up");
+        signupjButton.setText("Login");
         signupjButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         signupjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -375,16 +379,36 @@ public class register extends javax.swing.JFrame {
         // TODO add your handling code here:
         String email = emailTextField.getText();
         if (email.matches(EMAIL_PATTERN)) {
-            otp = Mailer.generateotp();
-            String msg = "Your One time Verification password for Graphical Password Authentication is : " + otp;
-            boolean flag = Mailer.sendemail(email, msg);
-            if (flag) {
-                new emailverify().setVisible(true);
-                emailverify.task = "register";
-                emailverify.vEmailField.setText(emailTextField.getText());
+
+            try {
+                Connection con = database.db();
+                Statement stm = con.createStatement();
+
+                String sql = "select * from users where email = '" + email + "';";
+//                    JOptionPane.showMessageDialog(null, pass, "password", JOptionPane.INFORMATION_MESSAGE);
+
+                ResultSet rs = stm.executeQuery(sql);
+
+                if (rs.next()) {
+                    JOptionPane.showMessageDialog(null, "User with email already exists ! ", "Warrning", JOptionPane.WARNING_MESSAGE);
+
+                } else {
+                    otp = Mailer.generateotp();
+                    String msg = "Your One time Verification password for Graphical Password Authentication is : " + otp;
+                    boolean flag = Mailer.sendemail(email, msg);
+                    if (flag) {
+                        new emailverify().setVisible(true);
+                        emailverify.task = "register";
+                        emailverify.vEmailField.setText(emailTextField.getText());
 //        this.setEnabled(false);
-            } else {
-                JOptionPane.showMessageDialog(null, "Unable to send OTP to \n" + email, "Error", JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Unable to send OTP to \n" + email, "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+
             }
         } else {
             JOptionPane.showMessageDialog(null, "Enter valid email id", "Error", JOptionPane.ERROR_MESSAGE);
@@ -400,31 +424,27 @@ public class register extends javax.swing.JFrame {
 
     private void setpasswordjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setpasswordjButtonActionPerformed
         // TODO add your handling code here:
-        if(firstnameTextField.getText().equals("")){
+        if (firstnameTextField.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Firstname is Empty ! ", "Warrning", JOptionPane.WARNING_MESSAGE);
-        }
-        else if(lastnameTextField.getText().equals("")){
+        } else if (lastnameTextField.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Lastname is Empty ! ", "Warrning", JOptionPane.WARNING_MESSAGE);
-        }
-        else if(phoneTextField.getText().equals("") || phoneTextField.getText().length()!=10 ){
+        } else if (phoneTextField.getText().equals("") || phoneTextField.getText().length() != 10) {
             JOptionPane.showMessageDialog(null, "Phone number  should have 10 digits ! ", "Warrning", JOptionPane.WARNING_MESSAGE);
-        }
-        else if(ageTextField.getText().equals("") || Integer.parseInt(ageTextField.getText()) <15 || Integer.parseInt(ageTextField.getText()) >100 ){
+        } else if (emailTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Email is Empty ! ", "Warrning", JOptionPane.WARNING_MESSAGE);
+        } else if (ageTextField.getText().equals("") || Integer.parseInt(ageTextField.getText()) < 15 || Integer.parseInt(ageTextField.getText()) > 100) {
             JOptionPane.showMessageDialog(null, "Age must be in between 15 to 100 ! ", "Warrning", JOptionPane.WARNING_MESSAGE);
-        }
-        else if(!maleRadioButton.isSelected() && !femaleRadioButton.isSelected() && !otherRadioButton.isSelected()){
+        } else if (!maleRadioButton.isSelected() && !femaleRadioButton.isSelected() && !otherRadioButton.isSelected()) {
             JOptionPane.showMessageDialog(null, "Please select Gender ! ", "Warrning", JOptionPane.WARNING_MESSAGE);
-        }
-        else{
-            if (verify) {
-            new SetPassword().setVisible(true);
-            this.setVisible(false);
-            this.dispose();
         } else {
-            JOptionPane.showMessageDialog(null, "Please verify email first ", "Error", JOptionPane.ERROR_MESSAGE);
+            if (verify) {
+                new SetPassword().setVisible(true);
+                this.setVisible(false);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Please verify email first ", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
-        }
-        
 
     }//GEN-LAST:event_setpasswordjButtonActionPerformed
 
