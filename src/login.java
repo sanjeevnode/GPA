@@ -7,7 +7,7 @@ public class login extends javax.swing.JFrame {
      * Creates new form login
      */
     public static String LoginEmail, otp;
-private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+    private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
     public login() {
         initComponents();
@@ -118,6 +118,11 @@ private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         jButton3.setBackground(new java.awt.Color(204, 0, 0));
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton3.setText("Exit");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 1, 30)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login.gif"))); // NOI18N
@@ -203,12 +208,11 @@ private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         LoginEmail = lemailTextField.getText();
-        if(LoginEmail.matches(EMAIL_PATTERN)){
+        if (LoginEmail.matches(EMAIL_PATTERN)) {
             SetPassword.task = "login";
-        new SetPassword().setVisible(true);
-        this.setVisible(false);
-        }
-        else{
+            new SetPassword().setVisible(true);
+            this.setVisible(false);
+        } else {
             JOptionPane.showMessageDialog(null, "Enter valid email id", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -254,6 +258,12 @@ private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]
         // TODO add your handling code here:
 
     }//GEN-LAST:event_lemailTextFieldKeyPressed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
