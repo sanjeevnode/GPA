@@ -1268,9 +1268,9 @@ public class SetPassword extends javax.swing.JFrame {
                     String gender = "";
                     if (register.maleRadioButton.isSelected()) {
                         gender = "Male";
-                    } else if (register.femaleRadioButton1.isSelected()) {
+                    } else if (register.femaleRadioButton.isSelected()) {
                         gender = "Female";
-                    } else if (register.otherRaadioButton.isSelected()) {
+                    } else if (register.otherRadioButton.isSelected()) {
                         gender = "Other";
                     }
 
@@ -1298,7 +1298,6 @@ public class SetPassword extends javax.swing.JFrame {
 //                    pst3.setString(1, register.emailTextField.getText());
 //                    pst3.setString(2, hashpass);
 //                    pst3.execute();
-
 //                    JOptionPane.showMessageDialog(null, pass, "password", JOptionPane.INFORMATION_MESSAGE);
                     new login().setVisible(true);
                     this.setVisible(false);

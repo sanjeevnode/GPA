@@ -1,10 +1,12 @@
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 public class register extends javax.swing.JFrame {
 
     public static String otp;
     public static boolean verify;
+    private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
     public register() {
         initComponents();
@@ -37,11 +39,11 @@ public class register extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         ageTextField = new javax.swing.JTextField();
         maleRadioButton = new javax.swing.JRadioButton();
-        femaleRadioButton1 = new javax.swing.JRadioButton();
+        femaleRadioButton = new javax.swing.JRadioButton();
         verifyemailjButton = new javax.swing.JButton();
         setpasswordjButton = new javax.swing.JButton();
         signupjButton = new javax.swing.JButton();
-        otherRaadioButton = new javax.swing.JRadioButton();
+        otherRadioButton = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registration");
@@ -90,6 +92,14 @@ public class register extends javax.swing.JFrame {
                 firstnameTextFieldActionPerformed(evt);
             }
         });
+        firstnameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                firstnameTextFieldKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                firstnameTextFieldKeyReleased(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("First Name");
@@ -101,11 +111,27 @@ public class register extends javax.swing.JFrame {
         jLabel5.setText("Phone Number");
 
         phoneTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        phoneTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                phoneTextFieldKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                phoneTextFieldKeyReleased(evt);
+            }
+        });
 
         lastnameTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lastnameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastnameTextFieldActionPerformed(evt);
+            }
+        });
+        lastnameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                lastnameTextFieldKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                lastnameTextFieldKeyReleased(evt);
             }
         });
 
@@ -126,6 +152,14 @@ public class register extends javax.swing.JFrame {
                 ageTextFieldActionPerformed(evt);
             }
         });
+        ageTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ageTextFieldKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ageTextFieldKeyReleased(evt);
+            }
+        });
 
         genderButtongroup.add(maleRadioButton);
         maleRadioButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -136,12 +170,12 @@ public class register extends javax.swing.JFrame {
             }
         });
 
-        genderButtongroup.add(femaleRadioButton1);
-        femaleRadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        femaleRadioButton1.setText("Female");
-        femaleRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        genderButtongroup.add(femaleRadioButton);
+        femaleRadioButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        femaleRadioButton.setText("Female");
+        femaleRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                femaleRadioButton1ActionPerformed(evt);
+                femaleRadioButtonActionPerformed(evt);
             }
         });
 
@@ -175,12 +209,12 @@ public class register extends javax.swing.JFrame {
             }
         });
 
-        genderButtongroup.add(otherRaadioButton);
-        otherRaadioButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        otherRaadioButton.setText("Other");
-        otherRaadioButton.addActionListener(new java.awt.event.ActionListener() {
+        genderButtongroup.add(otherRadioButton);
+        otherRadioButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        otherRadioButton.setText("Other");
+        otherRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherRaadioButtonActionPerformed(evt);
+                otherRadioButtonActionPerformed(evt);
             }
         });
 
@@ -194,9 +228,9 @@ public class register extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(maleRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(femaleRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(femaleRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(otherRaadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(otherRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(signupjButton, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
@@ -225,9 +259,9 @@ public class register extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(femaleRadioButton1)
+                    .addComponent(femaleRadioButton)
                     .addComponent(maleRadioButton)
-                    .addComponent(otherRaadioButton))
+                    .addComponent(otherRadioButton))
                 .addGap(49, 49, 49)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(setpasswordjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -329,9 +363,9 @@ public class register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_maleRadioButtonActionPerformed
 
-    private void femaleRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleRadioButton1ActionPerformed
+    private void femaleRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleRadioButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_femaleRadioButton1ActionPerformed
+    }//GEN-LAST:event_femaleRadioButtonActionPerformed
 
     private void ageTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageTextFieldActionPerformed
         // TODO add your handling code here:
@@ -340,16 +374,20 @@ public class register extends javax.swing.JFrame {
     private void verifyemailjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verifyemailjButtonActionPerformed
         // TODO add your handling code here:
         String email = emailTextField.getText();
-        otp = Mailer.generateotp();
-        String msg = "Your One time Verification password for Graphical Password Authentication is : " + otp;
-        boolean flag = Mailer.sendemail(email, msg);
-        if (flag) {
-            new emailverify().setVisible(true);
-            emailverify.task = "register";
-            emailverify.vEmailField.setText(emailTextField.getText());
+        if (email.matches(EMAIL_PATTERN)) {
+            otp = Mailer.generateotp();
+            String msg = "Your One time Verification password for Graphical Password Authentication is : " + otp;
+            boolean flag = Mailer.sendemail(email, msg);
+            if (flag) {
+                new emailverify().setVisible(true);
+                emailverify.task = "register";
+                emailverify.vEmailField.setText(emailTextField.getText());
 //        this.setEnabled(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "Unable to send OTP to \n" + email, "Error", JOptionPane.ERROR_MESSAGE);
+            }
         } else {
-            JOptionPane.showMessageDialog(null, "Unable to send OTP to \n" + email, "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Enter valid email id", "Error", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_verifyemailjButtonActionPerformed
@@ -362,13 +400,31 @@ public class register extends javax.swing.JFrame {
 
     private void setpasswordjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setpasswordjButtonActionPerformed
         // TODO add your handling code here:
-        if (verify) {
+        if(firstnameTextField.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Firstname is Empty ! ", "Warrning", JOptionPane.WARNING_MESSAGE);
+        }
+        else if(lastnameTextField.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Lastname is Empty ! ", "Warrning", JOptionPane.WARNING_MESSAGE);
+        }
+        else if(phoneTextField.getText().equals("") || phoneTextField.getText().length()!=10 ){
+            JOptionPane.showMessageDialog(null, "Phone number  should have 10 digits ! ", "Warrning", JOptionPane.WARNING_MESSAGE);
+        }
+        else if(ageTextField.getText().equals("") || Integer.parseInt(ageTextField.getText()) <15 || Integer.parseInt(ageTextField.getText()) >100 ){
+            JOptionPane.showMessageDialog(null, "Age must be in between 15 to 100 ! ", "Warrning", JOptionPane.WARNING_MESSAGE);
+        }
+        else if(!maleRadioButton.isSelected() && !femaleRadioButton.isSelected() && !otherRadioButton.isSelected()){
+            JOptionPane.showMessageDialog(null, "Please select Gender ! ", "Warrning", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            if (verify) {
             new SetPassword().setVisible(true);
             this.setVisible(false);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Please verify email first ", "Error", JOptionPane.ERROR_MESSAGE);
         }
+        }
+        
 
     }//GEN-LAST:event_setpasswordjButtonActionPerformed
 
@@ -376,9 +432,77 @@ public class register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_firstnameTextFieldActionPerformed
 
-    private void otherRaadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherRaadioButtonActionPerformed
+    private void otherRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherRadioButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_otherRaadioButtonActionPerformed
+    }//GEN-LAST:event_otherRadioButtonActionPerformed
+
+    private void firstnameTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_firstnameTextFieldKeyPressed
+        // TODO add your handling code here:
+        int c = evt.getKeyChar();
+        if (((c >= 65 && c <= 90) || (c >= 97 && c <= 122)) || ((c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_SPACE))) {
+            firstnameTextField.setEditable(true);
+        } else {
+            evt.consume();
+            firstnameTextField.setEditable(false);
+
+        }
+    }//GEN-LAST:event_firstnameTextFieldKeyPressed
+
+    private void lastnameTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lastnameTextFieldKeyPressed
+        // TODO add your handling code here:
+        int c = evt.getKeyChar();
+        if (((c >= 65 && c <= 90) || (c >= 97 && c <= 122)) || ((c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_SPACE))) {
+            lastnameTextField.setEditable(true);
+        } else {
+            evt.consume();
+            lastnameTextField.setEditable(false);
+
+        }
+    }//GEN-LAST:event_lastnameTextFieldKeyPressed
+
+    private void phoneTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneTextFieldKeyPressed
+        // TODO add your handling code here:
+        int c = evt.getKeyChar();
+        if ((c >= '0' && c <= '9') || (c == KeyEvent.VK_BACK_SPACE)) {
+            phoneTextField.setEditable(true);
+        } else {
+            evt.consume();
+            phoneTextField.setEditable(false);
+
+        }
+    }//GEN-LAST:event_phoneTextFieldKeyPressed
+
+    private void ageTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ageTextFieldKeyPressed
+        // TODO add your handling code here:
+        int c = evt.getKeyChar();
+        if ((c >= '0' && c <= '9') || (c == KeyEvent.VK_BACK_SPACE)) {
+            ageTextField.setEditable(true);
+        } else {
+            evt.consume();
+            ageTextField.setEditable(false);
+
+        }
+    }//GEN-LAST:event_ageTextFieldKeyPressed
+
+    private void ageTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ageTextFieldKeyReleased
+        // TODO add your handling code here:
+        ageTextField.setEditable(true);
+    }//GEN-LAST:event_ageTextFieldKeyReleased
+
+    private void phoneTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneTextFieldKeyReleased
+        // TODO add your handling code here:
+        phoneTextField.setEditable(true);
+    }//GEN-LAST:event_phoneTextFieldKeyReleased
+
+    private void lastnameTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lastnameTextFieldKeyReleased
+        // TODO add your handling code here:
+        lastnameTextField.setEditable(true);
+    }//GEN-LAST:event_lastnameTextFieldKeyReleased
+
+    private void firstnameTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_firstnameTextFieldKeyReleased
+        // TODO add your handling code here:
+        firstnameTextField.setEditable(true);
+    }//GEN-LAST:event_firstnameTextFieldKeyReleased
 
     /**
      * @param args the command line arguments
@@ -418,7 +542,7 @@ public class register extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField ageTextField;
     public static javax.swing.JTextField emailTextField;
-    public static javax.swing.JRadioButton femaleRadioButton1;
+    public static javax.swing.JRadioButton femaleRadioButton;
     public static javax.swing.JTextField firstnameTextField;
     private javax.swing.ButtonGroup genderButtongroup;
     private javax.swing.JLabel jLabel1;
@@ -436,7 +560,7 @@ public class register extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     public static javax.swing.JTextField lastnameTextField;
     public static javax.swing.JRadioButton maleRadioButton;
-    public static javax.swing.JRadioButton otherRaadioButton;
+    public static javax.swing.JRadioButton otherRadioButton;
     public static javax.swing.JTextField phoneTextField;
     private javax.swing.JButton setpasswordjButton;
     private javax.swing.JButton signupjButton;
